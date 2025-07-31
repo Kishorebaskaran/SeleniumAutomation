@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
+
 import org.testng.annotations.Test;
 
 import base.Basetest;
@@ -32,19 +32,19 @@ public class Logintest extends Basetest {
 	return data;
 	}
 	
-	@DataProvider(name = "Logindata2")
-	public Object[][] getData(){
-		return new Object[][] {
-			{"user123","pass1"},
-			{"user234","pass2"},
-			{"user345","pass3"}
-			
-		};
-	}
+//	@DataProvider(name = "Logindata2")
+//	public Object[][] getData(){
+//		return new Object[][] {
+//			{"user123","pass1"},
+//			{"user234","pass2"},
+//			{"user345","pass3"}
+//			
+//		};
+//	}
 	
-//	@Test(dataProvider = "Logindata2")
-	@Test
-	@Parameters({"username","password"})
+	@Test(dataProvider = "LoginData")
+
+//	@Parameters({"username","password"})
 	public void testvalidlogin(String username,String password) {
 		Log.info("Starting Login Test....");
 		test = ExtendReportManager.createTest("Login Test - "+username);
